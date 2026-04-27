@@ -2,8 +2,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, extname, join } from 'path';
 import { pathToFileURL } from 'url';
 
-import { PRODUCTS } from '../app/product-config';
-import type { ProductId } from '../app/product-config';
+import { PRODUCTS } from '../lib/product-config';
+import type { ProductId } from '../lib/product-config';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -132,7 +132,7 @@ const SECTION_DESCRIPTIONS: Record<string, Record<string, string>> = {
 };
 
 const MDX_FILENAME_OVERRIDES: Record<string, string> = {
-  'docs/Theming': 'docs-content.mdx',
+  '(diffs)/docs/Theming': 'docs-content.mdx',
 };
 
 const EXCLUDED_CONSTANTS = new Set([
@@ -148,7 +148,7 @@ const SEE_ALSO: Record<ProductId, Product['seeAlso']> = {
   diffs: [
     {
       label: '@pierre/trees',
-      url: 'https://diffs.com/trees/llms.txt',
+      url: 'https://trees.software/llms.txt',
       description: 'File tree rendering library',
     },
     {
@@ -165,7 +165,7 @@ const SEE_ALSO: Record<ProductId, Product['seeAlso']> = {
     },
     {
       label: 'Full documentation',
-      url: 'https://diffs.com/trees/llms-full.txt',
+      url: 'https://trees.software/llms-full.txt',
       description: 'Complete @pierre/trees docs in a single file',
     },
   ],
@@ -499,13 +499,13 @@ const PRODUCT_SECTIONS: Record<ProductId, readonly string[]> = {
 };
 
 const DOCS_PREFIX: Record<ProductId, string> = {
-  diffs: 'docs',
-  trees: 'trees/docs',
+  diffs: '(diffs)/docs',
+  trees: '(trees)/docs',
 };
 
 const LLMS_DOCS_URL: Record<ProductId, string> = {
   diffs: 'https://diffs.com/docs',
-  trees: 'https://diffs.com/trees/docs',
+  trees: 'https://trees.software/docs',
 };
 
 async function main() {
